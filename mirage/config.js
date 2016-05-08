@@ -24,5 +24,9 @@ export default function() {
 
   this.namespace = 'api/v1';
 
+  this.get('/episodes');
+  this.get('/episodes/:id');
+
   this.get('/podcasts');
+  this.get('/podcasts/:id');
 }

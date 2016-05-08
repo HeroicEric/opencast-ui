@@ -1,3 +1,5 @@
 {{#each model.podcasts as |podcast|}}
-  <p data-t="podcast">{{podcast.title}}</p>
+  <p data-t="podcast">
+    {{link-to podcast.title 'podcast' podcast.id}}
+  </p>
 {{/each}}

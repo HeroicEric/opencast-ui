@@ -1,4 +1,4 @@
-export default function(/* server */) {
+export default function(server) {
 
   /*
     Seed your development database using your factories.
@@ -7,5 +7,9 @@ export default function(/* server */) {
     Make sure to define a factory for each model you want to create.
   */
 
-  // server.createList('post', 10);
+  let podcasts = server.createList('podcast', 10);
+
+  podcasts.forEach((podcast) => {
+    server.createList('episode', 4, { podcastId: podcast.id });
+  });
 }
