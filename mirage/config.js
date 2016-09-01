@@ -27,6 +27,14 @@ export default function() {
   this.get('/episodes');
   this.get('/episodes/:id');
 
-  this.get('/podcasts');
+  this.get('/podcasts', ({ podcasts }, { queryParams }) => {
+    let query = queryParams['filter[query]'];
+
+    if (query) {
+      return podcasts.where({ title: query });
+    } else {
+      return podcasts.all();
+    }
+  });
   this.get('/podcasts/:id');
 }

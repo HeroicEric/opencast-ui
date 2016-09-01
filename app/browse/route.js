@@ -1,10 +1,27 @@
-import Route from 'ember-route';
+import Ember from 'ember';
 import RSVP from 'rsvp';
 
+const {
+  Route,
+  assign
+} = Ember;
+
 export default Route.extend({
-  model() {
+  queryParams: {
+    query: {
+      refreshModel: true
+    }
+  },
+
+  model(params = {}) {
+    let query = {};
+
+    if (params.query) {
+      query = assign({}, query, { filter: { query: params.query } });
+    }
+
     return RSVP.hash({
-      podcasts: this.store.findAll('podcast')
+      podcasts: this.store.query('podcast', query)
     });
   }
 });
