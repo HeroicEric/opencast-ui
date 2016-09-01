@@ -22,7 +22,7 @@ export default function() {
     this.del('/posts/:id');
   */
 
-  this.namespace = 'api/v1';
+  this.namespace = '/api/v1';
 
   this.get('/episodes');
   this.get('/episodes/:id');
