@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'opencast',
+    podModulePrefix: 'opencast/routes',
     environment,
     rootURL: '/',
     locationType: 'auto',
