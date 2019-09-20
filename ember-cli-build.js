@@ -7,7 +7,7 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     postcssOptions: {
       compile: {
-        plugins: [tailwindCSS]
+        plugins: [tailwindCSS('./config/tailwind.js')]
       }
     }
   });
