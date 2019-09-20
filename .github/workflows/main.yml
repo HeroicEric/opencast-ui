@@ -1,0 +1,23 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: yarn install
+        run: yarn install --frozen-lockfile
+      - name: Lint templates
+        run: yarn lint:hbs
+      - name: Lint JS
+        run: yarn lint:js
+      - name: Run tests
+        env:
+          CI: true
+        run: yarn test
+
